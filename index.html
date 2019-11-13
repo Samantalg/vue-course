@@ -11,45 +11,9 @@
 <body>
 
     <main>
-
-        <elegir-ganador v-bind:listado="personas" inline-template>
-            <div>
-                <h4 v-if="ganador">El ganador es {{ganador}}</h4>
-                <template v-else>
-                            <h4>Participantes</h4>
-                            <ul>
-                                <li v-for="persona in listado">{{persona}}</li>
-                            </ul>
-                        </template>
-                <button @click="elegirGanador">Jugar</button>
-            </div>
-        </elegir-ganador>
+        <autor v-bind:nombre="autor"></autor>
         <pre>{{ $data }}</pre>
-
     </main>
-    <!-- <template id="elegir-ganador-template">
-        <div>
-            <h4 v-if="ganador">El ganador es {{ganador}}</h4>
-            <template v-else>
-                <h4>Participantes</h4>
-                <ul>
-                    <li v-for="persona in listado">{{persona}}</li>
-                </ul>
-            </template>
-    <button @click="elegirGanador">Jugar</button>
-    </div>
-    </template> -->
-    <!-- <script type="text/template" id="elegir-ganador-template">
-        <div>
-            <h4 v-if="ganador">El ganador es {{ganador}}</h4>
-            <template v-else>
-                <h4>Participantes</h4>
-                <ul>
-                    <li v-for="persona in listado">{{persona}}</li></ul>
-            </template>
-            <button @click="elegirGanador">Jugar</button>
-        </div>
-    </script> -->
     <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/main.js"></script>
