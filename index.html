@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<pre lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -36,9 +36,9 @@
             <template slot="footer">Revisar</template>
         </alerta>
         <pre>{{ $data }}</pre>
-    </main>
+</main>
 
-    <template id="alerta-template">
+<template id="alerta-template">
         <section class="alerta" :class="[tipo, posicion]">
             <header class="alerta__header">
                 <a @click="ocultarWidget">Cerrar</a>
@@ -55,10 +55,10 @@
             </footer>
         </section>
     </template>
-    <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="js/main.js"></script>
+<script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 
-</html>
+</pre>
