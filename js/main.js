@@ -2,20 +2,12 @@
 const vm1 = new Vue({ // este objeto es la logica de la aplicación 
     el: 'main',
     data: {
-        tareas: [
-            { titulo: 'Aprender Vue', completado: false },
-            { titulo: 'Aprender Firebase', completado: false },
-            { titulo: 'Salir a correr', completado: false },
-        ]
-    },
-    methods: {
-        completarTarea(tarea) {
-            tarea.completado = !tarea.completado;
+        mostrar: true,
+        mensajes: {
+            transicion: 'Transiciones CSS con Vue',
+            animacion: 'Animaciones CSS con Vue',
+            transicionCustom: 'Transiciones entre elementos con Vue',
+            animacionCustom: 'Animaciones custom CSS con Vue'
         }
-    },
-    computed: {
-        tareasCompletadas() {
-            return this.tareas.filter((tarea) => tarea.completado);
-        }
-    },
+    }
 });
