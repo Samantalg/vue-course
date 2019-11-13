@@ -11,42 +11,17 @@
 <body>
 
     <main>
-
-        <h1> Juegos</h1>
-        <!--propiedad computada-->
-
-        <ul>
-            <!--<li v-for="juego in juegosOrdenados">-->
-            <li v-for="juego in mejoresJuegos">
-                <!-- {{ juego }} -->
-                {{ juego.titulo | alReves }}
-            </li>
-        </ul>
-
-        <input type="range" min="0" max="10" v-model="minimo">
-
-        <h2>Buscar por titulo</h2>
-
-        <input type="search" v-model="busqueda" placeholder="Buscar juego">
-
-        <ul>
-            <li v-for="juego in buscarJuego">
-                {{ juego }}
-            </li>
-        </ul>
-
-        <pre>{{ $data }}</pre>
-
+        <h1 v-text="mensaje"></h1>
+        <button @click="alReves">Al revés</button>
+        <pre> {{ $data}}</pre>
     </main>
+
+    <div id="app">
+        <h1>{{ mensaje }}</h1>
+    </div>
 
     <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
     <script src="js/main.js"></script>
 </body>
-
-</html>
-
-</html>
-
-</html>
 
 </html>
