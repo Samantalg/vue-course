@@ -11,19 +11,45 @@
 <body>
 
     <main>
-        <!-- <ul>
-            <li v-for="tarea in tareas">{{ tarea.title }}</li>
-        </ul>
- -->
-        <!-- <h1> Tareas locales</h1>
-        <mis-tareas v-bind:_tareas="tareasLocales"></mis-tareas>
-        <h1> Tareas Ajax</h1>
-        <mis-tareas v-bind:_tareas="tareas"></mis-tareas> -->
 
-        <mi-titulo v-bind:_titulo="titulo"></mi-titulo>
-        <mis-tareas></mis-tareas>
+        <elegir-ganador v-bind:listado="personas" inline-template>
+            <div>
+                <h4 v-if="ganador">El ganador es {{ganador}}</h4>
+                <template v-else>
+                            <h4>Participantes</h4>
+                            <ul>
+                                <li v-for="persona in listado">{{persona}}</li>
+                            </ul>
+                        </template>
+                <button @click="elegirGanador">Jugar</button>
+            </div>
+        </elegir-ganador>
+        <pre>{{ $data }}</pre>
 
     </main>
+    <!-- <template id="elegir-ganador-template">
+        <div>
+            <h4 v-if="ganador">El ganador es {{ganador}}</h4>
+            <template v-else>
+                <h4>Participantes</h4>
+                <ul>
+                    <li v-for="persona in listado">{{persona}}</li>
+                </ul>
+            </template>
+    <button @click="elegirGanador">Jugar</button>
+    </div>
+    </template> -->
+    <!-- <script type="text/template" id="elegir-ganador-template">
+        <div>
+            <h4 v-if="ganador">El ganador es {{ganador}}</h4>
+            <template v-else>
+                <h4>Participantes</h4>
+                <ul>
+                    <li v-for="persona in listado">{{persona}}</li></ul>
+            </template>
+            <button @click="elegirGanador">Jugar</button>
+        </div>
+    </script> -->
     <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/main.js"></script>
