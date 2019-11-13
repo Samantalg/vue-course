@@ -11,25 +11,26 @@
 <body>
 
     <main>
-        <!--Matriz-->
-        <ul>
-            <li v-for="dia in laborales">{{ dia }}</li>
-        </ul>
-
         <!--Matriz de objetos (collection)-->
         <ul>
-            <li v-for="(tarea, index) in tareas">
-                {{index}}: {{tarea.nombre}} <small>prioridad: {{tarea.prioridad}} </small>
+            <li v-for="tarea in tareas">
+                {{ tarea }}
             </li>
         </ul>
 
-        <!--Objeto-->
-        <ul>
-            <li v-for="(value, key, index) in persona">
-                {{index}}, {{key}}: {{value}}
-                <!--0, nombre: Maria-->
-            </li>
-        </ul>
+        <input type="text" placeholder="Introduce tu tarea" v-model="nuevaTarea" v-on:keyup.enter="agregarTarea">
+        <input type="button" value="Enviar tarea" v-on:click="agregarTarea">
+
+        <br>
+        <br>
+        <h2>Formulario</h2>
+
+        <form v-on:submit.prevent="agregarTarea"> <!-- si no le pongo prevent se recarga la página y pierdo la nueva información que he añadido-->
+            <input type="text" placeholder="Introduce tu tarea" v-model="nuevaTarea">
+            <input type="submit" value="Enviar tarea">
+        </form>
+
+
         <pre>{{ $data }}</pre>
 
     </main>

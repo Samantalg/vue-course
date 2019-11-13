@@ -2,15 +2,25 @@
 const vm = new Vue({ //si ponemos vm = ... podemos acceder desde fuera a la instacia para cambiar las propiedades
     el: 'main',
     data: {
-        laborales: ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes'],
+        nuevaTarea: null,
         tareas: [
-            { nombre: 'Hacer la compra', prioridad: 'baja' },
-            { nombre: 'Hacer el curso de Vue', prioridad: 'alta' }
-        ],
-        persona: {
-            nombre: 'Maria',
-            profesion: 'dev',
-            ciudad: 'Valencia'
+            'Hacer la compra',
+            'Hacer el curso de Vue',
+        ]
+    },
+
+    methods: {
+        agregarTarea() {
+            // this, hace referencia a la instancia vue
+            this.tareas.push(this.nuevaTarea);
+            this.nuevaTarea = null;
         }
     }
 });
+
+// Vanilla Javascript
+/* function agregarTarea() {
+    const input = document.querySelector('input[type="text"]');
+    vm.tareas.push(input.value);
+    input.value = '';
+} */
