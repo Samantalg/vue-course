@@ -13,50 +13,12 @@
 
     <main>
 
-        <button @click="mostrarExito=!mostrarExito">Exito</button>
-        <button @click="mostrarError=!mostrarError">Error</button>
-        <button @click="mostrarAdvertencia=!mostrarAdvertencia">Advertencia</button>
-        <alerta @ocultar="mostrarExito = false" v-show="mostrarExito" tipo="alerta--exito" posicion="alerta--arriba-derecha">
-            <template slot="header">Todo ok</template>
-            <p>main ok</p>
-            <template slot="footer">Continuemos</template>
-        </alerta>
-
-        <alerta @ocultar="mostrarError = false" v-show="mostrarError" tipo="alerta--error" posicion="alerta--abajo-izquierda">
-            <template slot="header">Error</template>
-            <p>Tenemos un problema</p>
-            <!--el slot es analogo al ngcontent-->
-            <template slot="footer">Arreglalo</template>
-        </alerta>
-
-        <alerta @ocultar="mostrarAdvertencia = false" v-show="mostrarAdvertencia" tipo="alerta--advertencia" posicion="alerta--abajo-derecha">
-            <template slot="header">Cuidado</template>
-            <p>Advertencia</p>
-            <!--el slot es analogo al ngcontent-->
-            <template slot="footer">Revisar</template>
-        </alerta>
+        <listado-productos :productos="productos"></listado-productos>
+        <carrito-compra></carrito-compra>
         <pre>{{ $data }}</pre>
     </main>
 
-    <template id="alerta-template">
-        <section class="alerta" :class="[tipo, posicion]">
-            <header class="alerta__header">
-                <a @click="ocultarWidget">Cerrar</a>
-                <slot name="header">Hola</slot>
-            </header>
-        
-            <div class="alerta__contenido">
-                <slot>
-                    Contenido
-                </slot>
-            </div>
-            <footer class="alerta__footer">
-                <slot name=footer>Footer</slot>
-            </footer>
-        </section>
-    </template>
     <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/main.js"></script>
 
 </body>
