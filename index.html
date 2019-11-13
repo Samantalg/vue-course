@@ -6,20 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        li {
+            cursor: pointer;
+        }
+        
+        .completado {
+            text-decoration: line-through;
+        }
+    </style>
 </head>
 
 <body>
 
     <main>
-        <h1 v-text="mensaje"></h1>
-        <!-- V-text es para valores constantes y {{}} para valores dinamicos -->
-        <button @click="alReves">Al revés</button>
-        <pre> {{ $data}}</pre>
+
+        <ul>
+            <!-- i tarea.completado es igual a true se añade la clase completado, y en caso contrario no-->
+            <!--v-bind:class="{completado: tarea.completado}" es equivalente a :class="{completado: tarea.completado}" -->
+            <li v-bind:class="{completado: tarea.completado}" @click="completarTarea(tarea)" v-for="tarea in tareas">
+                {{ tarea.titulo }}
+            </li>
+        </ul>
+
+        <h2>{{ tareasCompletadas.length }} completadas</h2>
+        <pre> {{ $data }}</pre>
     </main>
 
-    <div id="app">
-        <h1>{{ mensaje }}</h1>
-    </div>
 
     <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
     <script src="js/main.js"></script>

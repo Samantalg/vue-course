@@ -2,30 +2,20 @@
 const vm1 = new Vue({ // este objeto es la logica de la aplicación 
     el: 'main',
     data: {
-        mensaje: 'Instancia Vue 1',
-    }, //los métodos relativos al ciclo de vida de vue se ponen directamente en la raíz de la instancia -> en la documentación aparecen las funciones
-    beforeUpdate() {
-        console.log('BeforeUpdate: ', this.mensaje);
-    },
-    updated() {
-        console.log('Update: ', this.mensaje);
+        tareas: [
+            { titulo: 'Aprender Vue', completado: false },
+            { titulo: 'Aprender Firebase', completado: false },
+            { titulo: 'Salir a correr', completado: false },
+        ]
     },
     methods: {
-        alReves() {
-            this.mensaje = this.mensaje.split('').reverse().join('');
-            /* vm2.mensaje = "Hola desde vm1" */
+        completarTarea(tarea) {
+            tarea.completado = !tarea.completado;
         }
     },
     computed: {
-        mensajeEnMayusculas() {
-            return this.mensaje.toUpperCase();
+        tareasCompletadas() {
+            return this.tareas.filter((tarea) => tarea.completado);
         }
-    }
-});
-
-const vm2 = new Vue({
-    el: '#app',
-    data: {
-        mensaje: 'Instancia Vue 2',
-    }
+    },
 });
