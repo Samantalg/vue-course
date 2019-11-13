@@ -7,6 +7,13 @@
     `,
 });
  */
+Vue.component('mi-titulo', {
+    props: ['_titulo'],
+    template: `
+  <h2>{{ _titulo }}</h2>
+  `,
+});
+
 Vue.component('mis-tareas', {
     template: `<ul><li v-for="tarea in tareas">{{ tarea.title }}</li></ul>`,
     mounted() {
@@ -23,9 +30,11 @@ Vue.component('mis-tareas', {
     }
 });
 
-
 const vm1 = new Vue({
     el: 'main',
+    data: {
+        titulo: 'Mis tareas'
+    }
     /* data: {
         tareas: [],
         tareasLocales: [
