@@ -1,8 +1,16 @@
 // creamos la instancia de vue
 const vm = new Vue({ //si ponemos vm = ... podemos acceder desde fuera a la instacia para cambiar las propiedades
-    el: 'main', // de esta manera accede a lo que esté dentro de <main></main>
+    el: 'main',
     data: {
-        conectado: true,
-        edad: 44
+        laborales: ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes'],
+        tareas: [
+            { nombre: 'Hacer la compra', prioridad: 'baja' },
+            { nombre: 'Hacer el curso de Vue', prioridad: 'alta' }
+        ],
+        persona: {
+            nombre: 'Maria',
+            profesion: 'dev',
+            ciudad: 'Valencia'
+        }
     }
 });
