@@ -11,8 +11,17 @@
 <body>
 
     <main>
-        <img v-for="persona in personas" v-bind:src="persona.picture.thumbnail">
-        <pre>{{ $data }}</pre>
+        <!-- <ul>
+            <li v-for="tarea in tareas">{{ tarea.title }}</li>
+        </ul>
+ -->
+        <!-- <h1> Tareas locales</h1>
+        <mis-tareas v-bind:_tareas="tareasLocales"></mis-tareas>
+        <h1> Tareas Ajax</h1>
+        <mis-tareas v-bind:_tareas="tareas"></mis-tareas> -->
+
+        <h1>Mis tareas</h1>
+        <mis-tareas></mis-tareas>
 
     </main>
     <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
