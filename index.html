@@ -12,23 +12,28 @@
 
     <main>
 
-        <h1> {{ mensajeAlReves }}</h1>
+        <h1> Juegos</h1>
         <!--propiedad computada-->
 
         <ul>
-            <li v-for="tarea in tareasConPrioridad">
-                {{ tarea }}
+            <!--<li v-for="juego in juegosOrdenados">-->
+            <li v-for="juego in mejoresJuegos">
+                <!-- {{ juego }} -->
+                {{ juego.titulo | alReves }}
             </li>
         </ul>
 
-        <h2>Formulario</h2>
+        <input type="range" min="0" max="10" v-model="minimo">
 
-        <form v-on:submit.prevent="agregarTarea">
-            <!-- si no le pongo prevent se recarga la página y pierdo la nueva información que he añadido-->
-            <input type="text" placeholder="Introduce tu tarea" v-model="nuevaTarea">
-            <input type="submit" value="Enviar tarea">
-        </form>
+        <h2>Buscar por titulo</h2>
 
+        <input type="search" v-model="busqueda" placeholder="Buscar juego">
+
+        <ul>
+            <li v-for="juego in buscarJuego">
+                {{ juego }}
+            </li>
+        </ul>
 
         <pre>{{ $data }}</pre>
 
