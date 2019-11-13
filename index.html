@@ -11,10 +11,28 @@
 <body>
 
     <main>
-        <!-- Data binding y reactividad con vue.js-->
-        <h1>{{ mensaje }}</h1>
-        <input type="text" v-model="mensaje">
-        <pre> {{ $data }}</pre>
+        <h1 v-show="conectado">Estoy conectado</h1>
+        <!--v-show no muestra el elemnto en el dom pero está- (display: none)-->
+        <h1 v-if="conectado">Estoy conectado</h1>
+        <!--v-if elimina el elemnto del dom-->
+        <h2 v-if="edad < 18"> No puedes entrar</h2>
+        <h2 v-else-if="edad > 200"> Eres inmortal!</h2>
+        <h2 v-else> Puedes entrar</h2>
+
+        <template v-if="conectado">
+          <h3>Bienvenid@</h3>
+          <ul>
+            <li>
+              <a href="#">Mis datos</a>
+              <a href="#">Mensaje</a>
+              <a href="#">Salir</a>
+            </li>
+          </ul>  
+        </template>
+        <h4 v-else>No estás conectado</h4>
+
+        <pre>{{ $data }}</pre>
+
     </main>
 
     <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
