@@ -11,9 +11,21 @@
 <body>
 
     <main>
-        <autor v-bind:nombre="autor"></autor>
+        <candidato v-for="candidato in candidatos" :nombre="candidato.name.first" :correo="candidato.email" :imagen="candidato.picture.thumbnail" :location="candidato.location"></candidato>
         <pre>{{ $data }}</pre>
     </main>
+
+    <template id="candidato-template">
+        <blockquote>
+            <img :src="imagen" align:right>
+            <h2>{{ nombre }}</h2>
+            <h3>{{ correo }}</h3>
+            <ul>
+                <li v-for="(value, key) in location">{{key}}: {{value}}</li>
+            </ul>
+            <hr>
+        </blockquote>
+    </template>
     <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/main.js"></script>
