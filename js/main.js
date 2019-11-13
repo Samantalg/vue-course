@@ -1,3 +1,7 @@
+/*
+Vue.prototype.$http = axios; -> De esta manera seguimos haciendo this.$http.get('')
+*/
+
 // creamos la instancia de vue
 const vm1 = new Vue({ // este objeto es la logica de la aplicación 
     el: 'main',
@@ -10,9 +14,9 @@ const vm1 = new Vue({ // este objeto es la logica de la aplicación
     },
     methods: {
         cargarPersonas() {
-            this.$http.get('https://randomuser.me/api/?results=10')
+            axios.get('https://randomuser.me/api/?results=10')
                 .then((respuesta) => {
-                    this.personas = respuesta.body.results;
+                    this.personas = respuesta.data.results;
                 })
 
         }
