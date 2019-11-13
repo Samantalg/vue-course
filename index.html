@@ -5,94 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!--El siguiente link es para utilizar animate.css-->
-    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
     <title>Document</title>
-
-    <style>
-        /*Transiciones*/
-        
-        .aparecer-enter {
-            opacity: 0;
-            /*invisible*/
-        }
-        
-        .aparecer-enter-active {
-            transition: opacity 1s
-        }
-        
-        .aparecer-leave-to {
-            /*ultimo estado de la transicion*/
-            opacity: 0;
-        }
-        
-        .aparecer-leave-active {
-            transition: opacity 1s;
-        }
-        /*Animaciones*/
-        
-        .bote-enter-active {
-            animation: bote-in .5s;
-        }
-        
-        .bote-leave-active {
-            animation: bote-in .5s reverse;
-        }
-        
-        @keyframes bote-in {
-            0% {
-                transform: scale(0);
-            }
-            50% {
-                transform: scale(1.5);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-    </style>
 
 </head>
 
 <body>
 
     <main>
-
-        <button @click="mostrar = !mostrar">Mostrar/Ocultar</button>
-
-        <!-- Transición -->
-        <transition name="aparecer">
-            <h3 v-if="mostrar" v-text="mensajes.transicion"></h3>
-        </transition>
-
-        <br>
-
-        <!-- Animación -->
-        <transition name="bote">
-            <h3 v-if="mostrar" v-text="mensajes.animacion"></h3>
-        </transition>
-
-        <br>
-
-        <!-- Animate.css -->
-        <transition name="custom-classes-transition" enter-active-class="animated tada" leave-active-class="animated bounceOutRight">
-            <h3 v-if="mostrar" v-text="mensajes.animacionCustom"></h3>
-        </transition>
-
-        <!-- Transición entre diferentes elementos -->
-        <transition name="aparecer" mode="out-in">
-            <!--Con el modo out-in se va primero esa transición antes de aparecer No hay mensaje-->
-            <h3 v-if="mostrar" v-text="mensajes.transicionCustom" key="aparecer"></h3>
-            <h3 v-else key="ocultarse">No hay mensaje</h3>
-        </transition>
-
-
+        <img v-for="persona in personas" v-bind:src="persona.picture.thumbnail">
         <pre>{{ $data }}</pre>
 
     </main>
-
     <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
     <script src="js/main.js"></script>
+
 </body>
 
 </html>

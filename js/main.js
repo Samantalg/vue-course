@@ -2,12 +2,19 @@
 const vm1 = new Vue({ // este objeto es la logica de la aplicación 
     el: 'main',
     data: {
-        mostrar: true,
-        mensajes: {
-            transicion: 'Transiciones CSS con Vue',
-            animacion: 'Animaciones CSS con Vue',
-            transicionCustom: 'Transiciones entre elementos con Vue',
-            animacionCustom: 'Animaciones custom CSS con Vue'
+        personas: []
+    },
+    mounted() {
+        console.log('Instancia montada');
+        this.cargarPersonas();
+    },
+    methods: {
+        cargarPersonas() {
+            this.$http.get('https://randomuser.me/api/?results=10')
+                .then((respuesta) => {
+                    this.personas = respuesta.body.results;
+                })
+
         }
     }
 });
