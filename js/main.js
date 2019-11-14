@@ -4,7 +4,7 @@ Vue.component('lista-tareas', {
     <div>
       <h1><slot></slot></h1>
       <ul v-for="tarea in tareas">
-      <mi-tarea v-bind:tarea="tarea"></mi-tarea>
+      <mi-tarea v-bind:tarea="tarea"></mi-tarea> <!--Componente dentro de componente-->
       </ul>
     </div>
     `
