@@ -13,23 +13,19 @@
 
     <main>
 
-        <button @click="seleccionado = 'lista-tareas' ">Tareas</button>
-        <button @click="seleccionado = 'contacto'">Contacto</button>
-        <button @click="seleccionado = 'bio'">Biografía</button>
+        <!-- <input type="text" v-model="contrasena"> -->
+        <!-- <input type="text" :value="password" @input="password=$event.target.value "> -->
 
-        <!-- Podemos cambiar dinámicamente los componentes gracias al elemento reservado <component> y su atributo is que nos dirá que elemento debemos renderizar-->
-        <component v-bind:is="seleccionado"></component>
-
-        <!-- <lista-tareas>
-            Tareas que necesito finalizar ya
-        </lista-tareas>
-        <contacto></contacto>
-        <bio></bio> -->
+        <!--v-model es una forma acortada de expresar lo que sigue
+        Primero asocia el valor de la propiedad con el value del input <input type="text " :value="password">
+        Cuando se actualiza se propaga con el evento input <input type="text" :value=password " @input="password=$event.target.value ">
+        -->
+        <password v-model="password "></password>
         <pre>{{ $data }}</pre>
     </main>
 
-    <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
-    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/vue@2.6.10/dist/vue.js "></script>
+    <script src="js/main.js "></script>
 
 </body>
 
