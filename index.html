@@ -13,9 +13,18 @@
 
     <main>
 
-        <lista-tareas :tareas="tareas">
+        <button @click="seleccionado = 'lista-tareas' ">Tareas</button>
+        <button @click="seleccionado = 'contacto'">Contacto</button>
+        <button @click="seleccionado = 'bio'">Biografía</button>
+
+        <!-- Podemos cambiar dinámicamente los componentes gracias al elemento reservado <component> y su atributo is que nos dirá que elemento debemos renderizar-->
+        <component v-bind:is="seleccionado"></component>
+
+        <!-- <lista-tareas>
             Tareas que necesito finalizar ya
         </lista-tareas>
+        <contacto></contacto>
+        <bio></bio> -->
         <pre>{{ $data }}</pre>
     </main>
 
