@@ -13,18 +13,40 @@
 
     <main>
 
-        <!-- <input type="text" v-model="contrasena"> -->
-        <!-- <input type="text" :value="password" @input="password=$event.target.value "> -->
+        <usuarios>
+            <h2>Usuarios</h2>
+        </usuarios>
+        <!-- <busqueda></busqueda> -->
 
-        <!--v-model es una forma acortada de expresar lo que sigue
-        Primero asocia el valor de la propiedad con el value del input <input type="text " :value="password">
-        Cuando se actualiza se propaga con el evento input <input type="text" :value=password " @input="password=$event.target.value ">
-        -->
-        <password v-model="password "></password>
-        <pre>{{ $data }}</pre>
     </main>
 
+    <template id="usuarios-template">
+        <div>
+            <section class="cabecera">
+                <slot></slot>
+                <input type="text" placeholder="Buscar usuarios" v-model="busqueda">
+                <!-- v-model asocia y propaga el valor (actualiza) -->
+            </section>
+            <hr>
+            <section class = usuarios>
+                  <usuario v-bind:datos="usuario" v-for="usuario in filtrarUsuarios"></usuario>
+            </section>
+        </div>
+    </template>
+
+    <template id="usuario-template">
+        <div class="usuario">
+            <img align="left" v-bind:src="datos.foto">
+            <section>
+                <h1>
+                    {{ datos.nombre }}
+                </h1>
+                <small> {{ datos.correo }}</small>
+            </section>
+        </div>
+    </template>
     <script src="https://unpkg.com/vue@2.6.10/dist/vue.js "></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/main.js "></script>
 
 </body>
